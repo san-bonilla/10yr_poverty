@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Pobreza', 'Pobreza , Pobreza extrema'],
+          [ 44.4,      11],
+          [ 46.1,      11.3],
+          [ 45.5,     9.8],
+          [ 46.2,      9.5],
+          [ 43.6,      7.6],
+          [ 41.9,    7.4]
+        ]);
+
+        var options = {
+          title: 'Porcentaje de personas en situación de pobreza vs pobreza extrema a lo largo del tiempo',
+          hAxis: {title: 'Porcentaje de pobreza'},
+          vAxis: {title: 'Porcentaje de pobreza extrema'},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
+

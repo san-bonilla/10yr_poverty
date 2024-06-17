@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Año', 'Pobreza', 'Pobreza extrema'],
+          ['2008',  44.4,      11],
+          ['2010',  46.1,      11.3],
+          ['2012',  45.5,       9.8],
+          ['2014',  46.2,      9.5],
+          ['2016', 43.6, 7.6],
+          ['2018', 41.9, 7.4]
+        ]);
+
+        var options = {
+          title: 'Gráfico de área del porcentaje de personas en situación de pobreza y pobreza extrema en los últimos años',
+          hAxis: {title: 'Año',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+  </body>
+</html>
+

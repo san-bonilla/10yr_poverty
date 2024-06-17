@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Estado', 'Miles de personas en situación de pobreza extrema'],
+          ['Chiapas',     1623.3],
+          ['Veracruz',      1457.9],
+          ['Guerrero',  971.4],
+          ['Oaxaca', 951.8],
+          ['México',    865.7]
+        ]);
+
+        var options = {
+          title: 'Proporción de miles de personas en situación de pobreza extrema para los 5 estados más pobres'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
+

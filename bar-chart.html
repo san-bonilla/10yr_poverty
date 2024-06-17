@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawMultSeries);
+
+function drawMultSeries() {
+      var data = google.visualization.arrayToDataTable([
+        ['Indicador de carencia', 'Porcentaje 2008', 'Porcentaje 2018'],
+        ['Rezago educativo', 21.9, 16.9],
+        ['Carencia por acceso a los servicios de salud', 38.4, 16.2],
+        ['Carencia por acceso a la seguridad social', 65, 57.3],
+        ['Carencia por calidad y espacios de la vivienda', 17.7, 11.1],
+        ['Carencia por acceso a servicios básicos en la vivienda', 22.9, 19.8],
+        ['Carencia por acceso a la alimentación', 21.7, 20.4]
+      ]);
+
+      var options = {
+        title: 'Porcentaje de la población con alguna carencia social en 2008 vs 2018',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Porcentaje de la población',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Indicador de carencia'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+  </body>
+</html>
